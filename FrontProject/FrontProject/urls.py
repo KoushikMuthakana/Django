@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='homeIndex'),
     path('index/',include("lifeApp.urls")),
+    path('form/',include('DjangoFormsApp.urls')),
 ]
