@@ -13,14 +13,14 @@ class WebPage(models.Model):
     url=models.URLField(unique=True)
 
     def __str__(self):
-        return self.web_name + str(self.url)
+        return self.web_name +"   " + str(self.url)
     
 class AccessRecord(models.Model):
     name=models.ForeignKey(WebPage,on_delete=models.CASCADE)
     date=models.DateField()
 
     def __str__(self):
-        return str(self.date)
+        return str(self.date )+" ," +str(self.name.url)
 
 
 

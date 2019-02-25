@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<title>
+This is Home Page
+</title>
+<body>
+<link rel='stylesheet' href="{% static "CSS/mystyle.css"%} "/>
+<div class='django'>
+<table>
+{% if all_records %}
+<thead>
+    <th>Date</th>
+    <th></th>
+    <th>Links</th>
+</thead>
+
+{% for i in all_records %}
+<tr>
+    <td>{{i.date}}</td>
+    <td></td>
+    <td> <a href='{{i.name.url}}' > {{i.name.url}}</a> </td>
+
+</tr>
+{%endfor%}
+{%endif%}
+</table>
+</div>
+
+</body>
+</html>
