@@ -6,4 +6,5 @@ from .views import *
 urlpatterns=[
     path("",index,name='index'),
     path('update/',form_name,name='form_name'),
+    path('users/',users_form,name='usersForm'),
 ]

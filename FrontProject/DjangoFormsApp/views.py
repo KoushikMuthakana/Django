@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . import forms
+from .forms import FormData,UserForm
 
 def index(request):
     
@@ -9,7 +9,7 @@ def form_name(request):
     form=forms.FormData()
     
     if request.method=='POST':
-        form=forms.FormData(request.POST)
+        form=FormData(request.POST)
         if form.is_valid():
             print("Validation Successfull..!!")
             print(form.cleaned_data['name'])
@@ -18,3 +18,17 @@ def form_name(request):
            
 
     return render(request,'djangoFormsApp/form_page.html',context={'form':form})
+
+
+def users_form(request):
+    form=UserForm()
+    if request.method=='POST':
+        form=UserForm(request.POST)
+        if  form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print('Error form Invalid..!!')
+
+
+    return render(request,'djangoFormsApp/user_form.html',context={'form':form})
